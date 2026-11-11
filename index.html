@@ -86,13 +86,13 @@ nameEl.value=getTo();
 render();show(0);
 nameEl.addEventListener("input",render);
 $("next").onclick=()=>{idx=(idx+1)%wishes.length;show(idx);burst(innerWidth/2,innerHeight/2,18)};
-// $("share").onclick=async()=>{
-//   const n=nameEl.value.trim();
-//   const url=location.href.split("#")[0]+(n?"#to="+encodeURIComponent(n):"");
-//   try{await navigator.clipboard.writeText(url);$("share").textContent="Đã sao chép ✓"}
-//   catch(e){$("share").textContent="Hãy copy link trên thanh địa chỉ"}
-//   setTimeout(()=>$("share").textContent="Sao chép link 🔗",2200);
-// };
+$("share").onclick=async()=>{
+  const n=nameEl.value.trim();
+  const url=location.href.split("#")[0]+(n?"#to="+encodeURIComponent(n):"");
+  try{await navigator.clipboard.writeText(url);$("share").textContent="Đã sao chép ✓"}
+  catch(e){$("share").textContent="Hãy copy link trên thanh địa chỉ"}
+  setTimeout(()=>$("share").textContent="Sao chép link 🔗",2200);
+};
 
 /* Cánh hoa rơi + tim bay */
 const cv=$("c"),ctx=cv.getContext("2d");
